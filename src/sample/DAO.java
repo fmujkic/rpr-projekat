@@ -3,6 +3,8 @@ package sample;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class DAO {
@@ -37,14 +39,59 @@ public class DAO {
 
         try {
             userByID = conn.prepareStatement("SELECT * FROM User WHERE UserID=?");
-            weightsForUserByID = conn.prepareStatement("DELETE FROM grad WHERE drzava=?");
+            weightsForUserByID = conn.prepareStatement("SELECT * FROM Weight WHERE UserID=?");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+    private User getUser(int userID) {
+        try {
+            userByID.setInt(1, userID);
+            ResultSet rs = userByID.executeQuery();
+            if (!rs.next()) return null;
+            return getUserFromResultSet(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
+    private User getUserFromResultSet(ResultSet rs) throws SQLException {
+        User u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), null);
+        u.setWeights( getWeightsForUser(rs.getInt(1)));
 
+        return u;
+    }
+
+    private List<Weight> getWeightsForUser(int userID) {
+        try {
+            weightsForUserByID.setInt(1, userID);
+            ResultSet rs = weightsForUserByID.executeQuery();
+            if (!rs.next()) return null;
+            return getWeightsResultSet(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private List<Weight> getWeightsResultSet(ResultSet rs) {
+        ArrayList<Weight> result = new ArrayList<>();
+        try{
+        while (rs.next()) {
+            Weight weight = getWeightFromResultSet(rs);
+            result.add(weight);
+        }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    private Weight getWeightFromResultSet(ResultSet rs) throws SQLException {
+        return new Weight(rs.getString(1), rs.getDouble(2));
+    }
 
     private void DBRefresh() {
         Scanner enter;
