@@ -20,6 +20,10 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        launch(args);
+        DAO dao = DAO.getInstance();
+        User user = dao.getUser(1);
+        System.out.println(user.userName + " " + user.password);
+
+        //launch(args);
     }
 }

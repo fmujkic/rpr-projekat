@@ -45,7 +45,7 @@ public class DAO {
         }
     }
 
-    private User getUser(int userID) {
+    public User getUser(int userID) {
         try {
             userByID.setInt(1, userID);
             ResultSet rs = userByID.executeQuery();
