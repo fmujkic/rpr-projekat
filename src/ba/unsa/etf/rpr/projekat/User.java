@@ -1,11 +1,21 @@
 package ba.unsa.etf.rpr.projekat;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-public class User {
-    int ID;
-    String userName, password;
-    List<Weight> weights;
+public class User implements Serializable {
+    private int ID;
+    private String userName, password;
+    private List<Weight> weights;
+
+    public User() {
+        this.ID = 0;
+        this.userName = "defaultUser";
+        this.password = "defaultPassword";
+        this.weights = new ArrayList();
+    }
+
     public User(int ID, String userName, String password, List<Weight> weights) {
         this.ID = ID;
         this.userName = userName;
@@ -13,7 +23,36 @@ public class User {
         this.weights = weights;
     }
 
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Weight> getWeights() {
+        return weights;
+    }
+
     public void setWeights(List<Weight> weights) {
         this.weights = weights;
     }
+
 }
