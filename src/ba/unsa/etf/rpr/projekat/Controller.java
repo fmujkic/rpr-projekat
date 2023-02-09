@@ -35,10 +35,11 @@ public class Controller {
     public Button buttonSubmitWeight;
     private DAO dao;
     private User user;
+    private int userID = 1;
 
     public Controller() {
         dao = DAO.getInstance();
-        user = dao.getUser(1);
+        user = dao.getUser(userID);
     }
 
     ObservableList list = FXCollections.observableArrayList();
@@ -52,6 +53,8 @@ public class Controller {
 
     @FXML
     public void handleChart(ActionEvent event){
+        user = dao.getUser(userID);
+
         CategoryAxis categoryAxisX = new CategoryAxis();
         categoryAxisX.setLabel("Time");
 
@@ -74,6 +77,7 @@ public class Controller {
 
     @FXML
     public void handleList(ActionEvent event){
+        user = dao.getUser(userID);
 
         ArrayList<String> orderedWeights = new ArrayList<>();
         List<Weight> weights = user.getWeights();
@@ -111,8 +115,7 @@ public class Controller {
             JOptionPane.showMessageDialog(null,"Please enter valid values!", "Warning", JOptionPane.ERROR_MESSAGE);
         }
         textWeight.getScene().getWindow().hide();
-
-
+        user = dao.getUser(userID);
     }
 
 
