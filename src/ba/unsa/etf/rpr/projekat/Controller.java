@@ -5,18 +5,34 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+import javax.swing.*;
+import java.io.IOException;
+
+import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 
 public class Controller {
 
-    ObservableList list = FXCollections.observableArrayList();
+    public TextField textWeight;
+    public DatePicker textDate;
+    public Button buttonSubmitWeight;
 
+    ObservableList list = FXCollections.observableArrayList();
+    Stage primaryStage = new Stage();
     @FXML
     BorderPane borderPane;
 
@@ -63,11 +79,29 @@ public class Controller {
     }
 
     @FXML
-    public void handleAddWeight(ActionEvent event){
-        list.addAll("ttt", "rfds","fdvr");
-        weightsList.getItems().addAll(list);
+    public void handleAddWeight(ActionEvent event) throws IOException {
 
-        borderPane.setCenter(weightsList);
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/addWeight.fxml"));
+        primaryStage.setTitle("Hello World");
+        primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        primaryStage.show();
+    }
+
+    public void handleSubmitWeight(ActionEvent event) throws IOException {
+        String weight = textWeight.getText();
+        try{
+            int number = Integer.parseInt(weight);
+            System.out.println(number); // output = 25
+        }
+        catch (NumberFormatException ex){
+            //ex.printStackTrace();
+            JOptionPane.showMessageDialog(null,"Please enter valid number!", "Warning", JOptionPane.ERROR_MESSAGE);
+            textWeight.getScene().getWindow().hide();
+        }
+        System.out.println(textWeight.getText());
+        if(textDate.getValue() != null)
+        System.out.println(textDate.getValue().toString());
+
     }
 
 
