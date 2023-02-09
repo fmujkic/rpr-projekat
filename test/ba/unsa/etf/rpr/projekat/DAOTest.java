@@ -1,26 +1,30 @@
 package ba.unsa.etf.rpr.projekat;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 class DAOTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getInstance() {
+        DAO dao = DAO.getInstance();
+        Assertions.assertEquals(dao,DAO.getInstance());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getUser() {
+
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getWeightsForUser() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void addWeightForUser() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void loginRegisterUser() {
     }
 }
