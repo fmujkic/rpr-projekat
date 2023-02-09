@@ -10,7 +10,7 @@ class UserTest {
     @Test
     void getUserName() {
         User user = new User();
-        Assertions.assertEquals(user.getUserName(), "defaulUser");
+        Assertions.assertEquals(user.getUserName(), "defaultUser");
     }
 
     @Test
