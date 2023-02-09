@@ -21,6 +21,8 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
@@ -30,6 +32,7 @@ public class Controller {
     public TextField textWeight;
     public DatePicker textDate;
     public Button buttonSubmitWeight;
+    DAO dao = new DAO();
 
     ObservableList list = FXCollections.observableArrayList();
     Stage primaryStage = new Stage();
@@ -53,7 +56,13 @@ public class Controller {
         XYChart.Series data = new XYChart.Series();
         data.setName("Progress");
 
-        data.getData().add(new XYChart.Data("1.1.2023", 80));
+        User user = dao.getUser(1);
+        List<Weight> weights = user.getWeights();
+        for(Weight weight : weights){
+            data.getData().add(new XYChart.Data(weight.getDate(), weight.getWeight()));
+        }
+
+/*        data.getData().add(new XYChart.Data("1.1.2023", 80));
         data.getData().add(new XYChart.Data("2.1.2023", 78));
         data.getData().add(new XYChart.Data("3.1.2023", 82));
         data.getData().add(new XYChart.Data("4.1.2023", 75));
@@ -65,16 +74,24 @@ public class Controller {
         data.getData().add(new XYChart.Data("10.1.2023", 67));
         data.getData().add(new XYChart.Data("11.1.2023", 68));
         data.getData().add(new XYChart.Data("12.1.2023", 60));
-
+*/
         areaChart.getData().add(data);
         borderPane.setCenter(areaChart);
     }
 
     @FXML
     public void handleList(ActionEvent event){
-        list.addAll("ttt", "rfds","fdvr");
-        weightsList.getItems().addAll(list);
 
+        User user = dao.getUser(1);
+        ArrayList<String> orderedWeights = new ArrayList<>();
+        List<Weight> weights = user.getWeights();
+        for(Weight weight : weights){
+            orderedWeights.add(weight.toString());
+        }
+
+
+        list.addAll(orderedWeights);
+        weightsList.getItems().addAll(list);
         borderPane.setCenter(weightsList);
     }
 

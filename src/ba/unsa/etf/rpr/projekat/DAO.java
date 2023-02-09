@@ -19,7 +19,7 @@ public class DAO {
         return instance;
     }
 
-    private DAO() {
+    DAO() {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:baza.db");
         } catch (SQLException e) {
@@ -60,11 +60,10 @@ public class DAO {
     private User getUserFromResultSet(ResultSet rs) throws SQLException {
         User u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), null);
         u.setWeights( getWeightsForUser(rs.getInt(1)));
-
         return u;
     }
 
-    private List<Weight> getWeightsForUser(int userID) {
+    public ArrayList<Weight> getWeightsForUser(int userID) {
         try {
             weightsForUserByID.setInt(1, userID);
             ResultSet rs = weightsForUserByID.executeQuery();
@@ -76,13 +75,13 @@ public class DAO {
         }
     }
 
-    private List<Weight> getWeightsResultSet(ResultSet rs) {
+    private ArrayList<Weight> getWeightsResultSet(ResultSet rs) {
         ArrayList<Weight> result = new ArrayList<>();
         try{
-        while (rs.next()) {
-            Weight weight = getWeightFromResultSet(rs);
-            result.add(weight);
-        }
+            do {
+                Weight weight = getWeightFromResultSet(rs);
+                result.add(weight);
+            }while (rs.next());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -90,7 +89,7 @@ public class DAO {
     }
 
     private Weight getWeightFromResultSet(ResultSet rs) throws SQLException {
-        return new Weight(rs.getString(1), rs.getDouble(2));
+        return new Weight(rs.getString(1), rs.getDouble(3));
     }
 
     private void DBRefresh() {
