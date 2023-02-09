@@ -1,9 +1,6 @@
 package ba.unsa.etf.rpr.projekat;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 
 /***
  *
@@ -46,15 +43,6 @@ public class Weight implements Serializable {
         this.weight = weight;
     }
 
-    /***
-     * Converts string to date
-     * @param date
-     * @return
-     */
-    private LocalDate converter(String date){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyy", Locale.ENGLISH);
-        return LocalDate.parse(date, formatter);
-    }
 
     @Override
     public String toString() {
