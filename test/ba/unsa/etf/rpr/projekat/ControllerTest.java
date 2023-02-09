@@ -1,13 +1,18 @@
 package ba.unsa.etf.rpr.projekat;
 
+import javafx.event.ActionEvent;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.IOException;
+
 
 class ControllerTest {
 
     @Test
-    void handleChart() {
+    void handleChart() throws IOException {
+        Controller controller = new Controller();
+        controller.login(null);
     }
 
     @Test
