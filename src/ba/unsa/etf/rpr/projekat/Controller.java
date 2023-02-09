@@ -97,8 +97,6 @@ public class Controller {
     }
 
     public void handleSubmitWeight(ActionEvent event) throws IOException {
-        String date;
-        double number;
         Weight weight = new Weight();
         LocalDate localDate;
         try{
