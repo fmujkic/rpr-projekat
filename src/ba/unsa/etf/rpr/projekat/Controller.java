@@ -63,9 +63,9 @@ public class Controller {
         NumberAxis categoryAxisY = new NumberAxis();
         categoryAxisY.setLabel("Weight");
 
-        AreaChart areaChart = new AreaChart(categoryAxisX,categoryAxisY);
+        var areaChart = new AreaChart(categoryAxisX,categoryAxisY);
 
-        XYChart.Series data = new XYChart.Series();
+        var data = new XYChart.Series();
         data.setName("Progress");
 
         List<Weight> weights = user.getWeights();
@@ -97,12 +97,12 @@ public class Controller {
     public void handleAddWeight(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/addWeight.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Add weight");
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         primaryStage.show();
     }
 
-    public void handleSubmitWeight(ActionEvent event) throws IOException {
+    public void handleSubmitWeight(ActionEvent event) {
         Weight weight = new Weight();
         LocalDate localDate;
         try{
@@ -121,11 +121,14 @@ public class Controller {
     }
 
 
-    public void login(ActionEvent actionEvent) {
-        System.out.println("sfdsd");
+    public void login(ActionEvent actionEvent) throws IOException {
         userID = dao.loginRegisterUser(userName.getText(), password.getText());
-        System.out.println("sfdsd");
         user = dao.getUser(userID);
-        System.out.println("sfdsd");
+        userName.getScene().getWindow().hide();
+
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/chart.fxml"));
+        primaryStage.setTitle("Weighter");
+        primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        primaryStage.show();
     }
 }

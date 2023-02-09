@@ -139,7 +139,7 @@ public class DAO {
     }
 
     private int createUser(String userName, String password) {
-        ResultSet rs = null;
+        ResultSet rs;
         int id = 0;
         try {
             rs = setNewUserID.executeQuery();
@@ -149,8 +149,8 @@ public class DAO {
             createUser.setString(3,password);
             createUser.executeUpdate();
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
         return id;
     }
