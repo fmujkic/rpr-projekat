@@ -101,9 +101,10 @@ public class Controller {
             weight.setWeight(Double.parseDouble(textWeight.getText()));
             localDate = textDate.getValue();
             weight.setDate(localDate.getDayOfMonth() + "." + localDate.getMonthValue() + "." + localDate.getYear() + ".");
+            System.out.println(weight.getWeight() + " " +  weight.getDate());
             dao.addWeightForUser(user.getID(), weight);
         }
-        catch (NumberFormatException ex){
+        catch (Exception ex){
             JOptionPane.showMessageDialog(null,"Please enter valid values!", "Warning", JOptionPane.ERROR_MESSAGE);
             textWeight.getScene().getWindow().hide();
         }

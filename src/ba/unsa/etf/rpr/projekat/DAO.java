@@ -116,4 +116,7 @@ public class DAO {
     }
 
 
+    public void addWeightForUser(int id, Weight weight) {
+
+    }
 }
