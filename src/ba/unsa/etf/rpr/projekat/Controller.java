@@ -109,8 +109,8 @@ public class Controller {
         catch (Exception ex){
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null,"Please enter valid values!", "Warning", JOptionPane.ERROR_MESSAGE);
-            textWeight.getScene().getWindow().hide();
         }
+        textWeight.getScene().getWindow().hide();
 
 
     }
