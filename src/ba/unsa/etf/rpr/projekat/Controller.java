@@ -122,7 +122,10 @@ public class Controller {
 
 
     public void login(ActionEvent actionEvent) {
-        System.out.println(userName.getText());
-        System.out.println(password.getText());
+        System.out.println("sfdsd");
+        userID = dao.loginRegisterUser(userName.getText(), password.getText());
+        System.out.println("sfdsd");
+        user = dao.getUser(userID);
+        System.out.println("sfdsd");
     }
 }

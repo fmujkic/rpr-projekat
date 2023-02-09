@@ -11,8 +11,9 @@ public class DAO {
 
     private static DAO instance;
     private Connection conn;
+    public static int UserID = 0;
 
-    private PreparedStatement userList, userByID, weightsForUserByID, addWeightForUser;
+    private PreparedStatement userList, userByID, weightsForUserByID, addWeightForUser,setNewUserID,userExists, createUser;
 
     public static DAO getInstance() {
         if (instance == null) instance = new DAO();
@@ -40,7 +41,11 @@ public class DAO {
         try {
             userByID = conn.prepareStatement("SELECT * FROM User WHERE UserID=?");
             weightsForUserByID = conn.prepareStatement("SELECT * FROM Weight WHERE UserID=?");
+            userExists = conn.prepareStatement("SELECT userID FROM User WHERE UserName=? and Password=?");
             addWeightForUser = conn.prepareStatement("INSERT INTO Weight VALUES(?,?,?)");
+            setNewUserID = conn.prepareStatement("SELECT MAX(userid)+1 FROM user");
+            createUser = conn.prepareStatement("INSERT INTO User VALUES(?,?,?)");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -123,5 +128,44 @@ public class DAO {
         addWeightForUser.setDouble(3, weight.getWeight());
         addWeightForUser.executeUpdate();
 
+    }
+
+    public int loginRegisterUser(String userName, String password)  {
+        int userID = userExists(userName, password);
+        if (userID == 0){
+            userID = createUser(userName, password);
+        }
+        return userID;
+    }
+
+    private int createUser(String userName, String password) {
+        ResultSet rs = null;
+        int id = 0;
+        try {
+            rs = setNewUserID.executeQuery();
+            id = rs.getInt(1);
+            createUser.setInt(1,id);
+            createUser.setString(2,userName);
+            createUser.setString(3,password);
+            createUser.executeQuery();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return id;
+    }
+
+    private int userExists(String userName, String password)  {
+
+        try {
+            userExists.setString(1,userName);
+            userExists.setString(2,password);
+            ResultSet rs = userExists.executeQuery();
+            if (!rs.next()) return 0;
+            return rs.getInt(1);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return 0;
     }
 }
