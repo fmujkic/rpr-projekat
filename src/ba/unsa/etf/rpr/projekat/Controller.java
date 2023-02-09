@@ -28,14 +28,18 @@ import java.util.List;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
-
 public class Controller {
 
     public TextField textWeight;
     public DatePicker textDate;
     public Button buttonSubmitWeight;
-    DAO dao = new DAO();
-    User user = dao.getUser(1);
+    private DAO dao;
+    private User user;
+
+    public Controller() {
+        dao = DAO.getInstance();
+        user = dao.getUser(1);
+    }
 
     ObservableList list = FXCollections.observableArrayList();
     Stage primaryStage = new Stage();
@@ -105,6 +109,7 @@ public class Controller {
             dao.addWeightForUser(user.getID(), weight);
         }
         catch (Exception ex){
+            ex.printStackTrace();
             JOptionPane.showMessageDialog(null,"Please enter valid values!", "Warning", JOptionPane.ERROR_MESSAGE);
             textWeight.getScene().getWindow().hide();
         }

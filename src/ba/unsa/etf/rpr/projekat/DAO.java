@@ -12,14 +12,14 @@ public class DAO {
     private static DAO instance;
     private Connection conn;
 
-    private PreparedStatement userList, userByID, weightsForUserByID;
+    private PreparedStatement userList, userByID, weightsForUserByID, addWeightForUser;
 
     public static DAO getInstance() {
         if (instance == null) instance = new DAO();
         return instance;
     }
 
-    DAO() {
+    private DAO() {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:baza.db");
         } catch (SQLException e) {
@@ -40,6 +40,7 @@ public class DAO {
         try {
             userByID = conn.prepareStatement("SELECT * FROM User WHERE UserID=?");
             weightsForUserByID = conn.prepareStatement("SELECT * FROM Weight WHERE UserID=?");
+            addWeightForUser = conn.prepareStatement("INSERT INTO Weight VALUES(?,?,?)");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -116,7 +117,11 @@ public class DAO {
     }
 
 
-    public void addWeightForUser(int id, Weight weight) {
+    public void addWeightForUser(int id, Weight weight) throws SQLException {
+        addWeightForUser.setString(1, weight.getDate());
+        addWeightForUser.setInt(2, id);
+        addWeightForUser.setDouble(3, weight.getWeight());
+        addWeightForUser.executeUpdate();
 
     }
 }
