@@ -21,7 +21,9 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
@@ -33,6 +35,7 @@ public class Controller {
     public DatePicker textDate;
     public Button buttonSubmitWeight;
     DAO dao = new DAO();
+    User user = dao.getUser(1);
 
     ObservableList list = FXCollections.observableArrayList();
     Stage primaryStage = new Stage();
@@ -56,7 +59,6 @@ public class Controller {
         XYChart.Series data = new XYChart.Series();
         data.setName("Progress");
 
-        User user = dao.getUser(1);
         List<Weight> weights = user.getWeights();
         for(Weight weight : weights){
             data.getData().add(new XYChart.Data(weight.getDate(), weight.getWeight()));
@@ -69,7 +71,6 @@ public class Controller {
     @FXML
     public void handleList(ActionEvent event){
 
-        User user = dao.getUser(1);
         ArrayList<String> orderedWeights = new ArrayList<>();
         List<Weight> weights = user.getWeights();
         for(Weight weight : weights){
@@ -92,19 +93,21 @@ public class Controller {
     }
 
     public void handleSubmitWeight(ActionEvent event) throws IOException {
-        String weight = textWeight.getText();
+        String date;
+        double number;
+        Weight weight = new Weight();
+        LocalDate localDate;
         try{
-            int number = Integer.parseInt(weight);
-            System.out.println(number); // output = 25
+            weight.setWeight(Double.parseDouble(textWeight.getText()));
+            localDate = textDate.getValue();
+            weight.setDate(localDate.getDayOfMonth() + "." + localDate.getMonthValue() + "." + localDate.getYear() + ".");
+            dao.addWeightForUser(user.getID(), weight);
         }
         catch (NumberFormatException ex){
-            //ex.printStackTrace();
-            JOptionPane.showMessageDialog(null,"Please enter valid number!", "Warning", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Please enter valid values!", "Warning", JOptionPane.ERROR_MESSAGE);
             textWeight.getScene().getWindow().hide();
         }
-        System.out.println(textWeight.getText());
-        if(textDate.getValue() != null)
-        System.out.println(textDate.getValue().toString());
+
 
     }
 
