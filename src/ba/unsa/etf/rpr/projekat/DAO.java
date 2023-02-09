@@ -147,7 +147,7 @@ public class DAO {
             createUser.setInt(1,id);
             createUser.setString(2,userName);
             createUser.setString(3,password);
-            createUser.executeQuery();
+            createUser.executeUpdate();
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
