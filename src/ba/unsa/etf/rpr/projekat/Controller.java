@@ -33,6 +33,8 @@ public class Controller {
     public TextField textWeight;
     public DatePicker textDate;
     public Button buttonSubmitWeight;
+    public TextField userName;
+    public TextField password;
     private DAO dao;
     private User user;
     private int userID = 1;
@@ -119,4 +121,8 @@ public class Controller {
     }
 
 
+    public void login(ActionEvent actionEvent) {
+        System.out.println(userName.getText());
+        System.out.println(password.getText());
+    }
 }
