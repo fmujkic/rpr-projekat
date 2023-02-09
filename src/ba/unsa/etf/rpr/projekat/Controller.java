@@ -1,18 +1,28 @@
 package ba.unsa.etf.rpr.projekat;
 
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
+
 
 public class Controller {
 
+    ObservableList list = FXCollections.observableArrayList();
 
     @FXML
     BorderPane borderPane;
+
+    @FXML
+    ListView<String> weightsList = new ListView<>();
+
 
     @FXML
     public void handleChart(ActionEvent event){
@@ -43,4 +53,22 @@ public class Controller {
         areaChart.getData().add(data);
         borderPane.setCenter(areaChart);
     }
+
+    @FXML
+    public void handleList(ActionEvent event){
+        list.addAll("ttt", "rfds","fdvr");
+        weightsList.getItems().addAll(list);
+
+        borderPane.setCenter(weightsList);
+    }
+
+    @FXML
+    public void handleAddWeight(ActionEvent event){
+        list.addAll("ttt", "rfds","fdvr");
+        weightsList.getItems().addAll(list);
+
+        borderPane.setCenter(weightsList);
+    }
+
+
 }
