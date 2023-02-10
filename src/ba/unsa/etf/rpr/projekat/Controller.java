@@ -54,7 +54,7 @@ public class Controller {
 
 
     /***
-     *
+     * handles chart controls.
      * @param event
      */
     @FXML
