@@ -116,6 +116,11 @@ public class DAO {
         }
     }
 
+    /***
+     * Extracts list of weights from dataset.
+     * @param rs data for extraction.
+     * @return list of objects of type Weight.
+     */
     private ArrayList<Weight> getWeightsResultSet(ResultSet rs) {
         ArrayList<Weight> result = new ArrayList<>();
         try{
