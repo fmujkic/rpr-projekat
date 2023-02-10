@@ -77,6 +77,10 @@ public class Controller {
         borderPane.setCenter(areaChart);
     }
 
+    /***
+     * handles list of weights.
+     * @param event
+     */
     @FXML
     public void handleList(ActionEvent event){
         user = dao.getUser(userID);
