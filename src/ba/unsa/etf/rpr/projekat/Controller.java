@@ -112,7 +112,7 @@ public class Controller {
 
     /***
      * Handles adding weight to user.
-     * @param event
+     * @param event fxml event
      */
     public void handleSubmitWeight(ActionEvent event) {
         Weight weight = new Weight();
