@@ -98,7 +98,7 @@ public class Controller {
 
     /***
      * Handles adding weight to user.
-     * @param event
+     * @param event  fxml event
      * @throws IOException
      */
     @FXML
