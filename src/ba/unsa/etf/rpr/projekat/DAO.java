@@ -87,6 +87,12 @@ public class DAO {
         }
     }
 
+    /***
+     * Private method to extract user from result set.
+     * @param rs ResultSet is given parameter.
+     * @return returns Instance of an User object.
+     * @throws SQLException
+     */
     private User getUserFromResultSet(ResultSet rs) throws SQLException {
         User u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), null);
         u.setWeights( getWeightsForUser(rs.getInt(1)));
