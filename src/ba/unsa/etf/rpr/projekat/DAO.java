@@ -199,6 +199,12 @@ public class DAO {
     }
 
 
+    /***
+     *
+     * @param userName
+     * @param password
+     * @return
+     */
     private int createUser(String userName, String password) {
         ResultSet rs;
         int id = 0;
