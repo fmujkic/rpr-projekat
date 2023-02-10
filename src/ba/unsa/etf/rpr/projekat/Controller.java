@@ -17,12 +17,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
 import javax.swing.*;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
@@ -38,6 +36,9 @@ public class Controller {
     private User user;
     private int userID = 1;
 
+    /***
+     * Default controller, initializes dao instance and user,
+     */
     public Controller() {
         dao = DAO.getInstance();
         user = dao.getUser(userID);
