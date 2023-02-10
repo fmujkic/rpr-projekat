@@ -97,7 +97,7 @@ public class Controller {
     }
 
     /***
-     * Handles adding weight to user.
+     * Handles creating window when adding weight to user.
      * @param event  fxml event
      * @throws IOException if fxml does not work properly.
      */
@@ -110,6 +110,10 @@ public class Controller {
         primaryStage.show();
     }
 
+    /***
+     * Handles adding weight to user.
+     * @param event
+     */
     public void handleSubmitWeight(ActionEvent event) {
         Weight weight = new Weight();
         LocalDate localDate;
