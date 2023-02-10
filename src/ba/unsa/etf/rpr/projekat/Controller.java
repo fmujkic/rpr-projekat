@@ -79,7 +79,7 @@ public class Controller {
 
     /***
      * handles list of weights.
-     * @param event
+     * @param event  fxml event
      */
     @FXML
     public void handleList(ActionEvent event){
