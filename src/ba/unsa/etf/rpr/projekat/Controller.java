@@ -25,6 +25,9 @@ import java.util.List;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+/***
+ * Main controller.
+ */
 public class Controller {
 
     public TextField textWeight;
