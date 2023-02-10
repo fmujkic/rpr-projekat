@@ -174,7 +174,7 @@ public class DAO {
      * Adds weight on weight list for given User.
      * @param id for given user.
      * @param weight to add to user.
-     * @throws SQLException if there is DB issue
+     * @throws SQLException if there is DB issue.
      */
     public void addWeightForUser(int id, Weight weight) throws SQLException {
         addWeightForUser.setString(1, weight.getDate());
