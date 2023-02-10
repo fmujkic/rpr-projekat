@@ -19,7 +19,7 @@ public class User implements Serializable {
         this.ID = 0;
         this.userName = "defaultUser";
         this.password = "defaultPassword";
-        this.weights = new ArrayList <Weight> ();
+        this.weights = new ArrayList();
     }
 
     /***
