@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Scanner;
 
+/***
+ * Data access object layer, singleton connection to database.
+ */
 public class DAO {
 
     private static DAO instance;
