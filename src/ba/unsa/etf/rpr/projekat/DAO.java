@@ -32,7 +32,6 @@ public class DAO {
             e.printStackTrace();
         }
 
-
         try {
             conn = DriverManager.getConnection(properties.getProperty("dbURL"));
         } catch (SQLException e) {
