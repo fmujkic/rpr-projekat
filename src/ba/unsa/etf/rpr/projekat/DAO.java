@@ -223,7 +223,7 @@ public class DAO {
     }
 
     /***
-     *
+     * Checks if user exist in database.
      * @param userName
      * @param password
      * @return
