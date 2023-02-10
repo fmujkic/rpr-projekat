@@ -19,9 +19,12 @@ public class User implements Serializable {
         this.ID = 0;
         this.userName = "defaultUser";
         this.password = "defaultPassword";
-        this.weights = new ArrayList();
+        this.weights = new ArrayList <Weight> ();
     }
 
+    /***
+     * User constructor with parameters.
+     */
     public User(int ID, String userName, String password, List<Weight> weights) {
         this.ID = ID;
         this.userName = userName;
