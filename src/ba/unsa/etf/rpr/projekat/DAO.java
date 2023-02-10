@@ -70,6 +70,11 @@ public class DAO {
         }
     }
 
+    /***
+     * Returns user for given ID;
+     * @param userID ID for filtering the user
+     * @return instance of an User object.
+     */
     public User getUser(int userID) {
         try {
             userByID.setInt(1, userID);
