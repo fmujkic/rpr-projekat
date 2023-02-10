@@ -134,6 +134,11 @@ public class DAO {
         return result;
     }
 
+    /***
+     * Extracts one instance of weight from dataset.
+     * @param rs data for extraction.
+     * @return Object of type Weight.
+     */
     private Weight getWeightFromResultSet(ResultSet rs) throws SQLException {
         return new Weight(rs.getString(1), rs.getDouble(3));
     }
