@@ -32,6 +32,20 @@ public class User implements Serializable {
         this.weights = weights;
     }
 
+    public User(int ID, String userName, String password) {
+        this.ID = ID;
+        this.userName = userName;
+        this.password = password;
+        this.weights = null;
+    }
+
+    public User(int ID, String userName) {
+        this.ID = ID;
+        this.userName = userName;
+        this.password = "";
+        this.weights = null;
+    }
+
     public int getID() {
         return ID;
     }
