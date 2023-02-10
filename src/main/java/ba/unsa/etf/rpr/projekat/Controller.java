@@ -155,6 +155,11 @@ public class Controller {
         primaryStage.show();
     }
 
+    /***
+     * Opens window for BMI calculation
+     * @param actionEvent fxml event
+     * @throws IOException
+     */
     public void handleBMICalculate(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/BMI.fxml"));
         primaryStage.setTitle("Calculate BMI");
@@ -163,6 +168,10 @@ public class Controller {
 
     }
 
+    /***
+     * Calculates BMI
+     * @param actionEvent
+     */
     public void buttonBMI(ActionEvent actionEvent) {
         Double h,w,bmi;
         try {
