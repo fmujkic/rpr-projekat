@@ -202,7 +202,7 @@ public class DAO {
     /***
      * Method for creating new user.
      * @param userName parameter for userName of new user.
-     * @param password
+     * @param password parameter for password of new user.
      * @return
      */
     private int createUser(String userName, String password) {
