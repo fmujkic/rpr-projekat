@@ -222,6 +222,12 @@ public class DAO {
         return id;
     }
 
+    /***
+     *
+     * @param userName
+     * @param password
+     * @return
+     */
     private int userExists(String userName, String password)  {
 
         try {
