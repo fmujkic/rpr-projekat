@@ -1,6 +1,5 @@
 package ba.unsa.etf.rpr.projekat;
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
