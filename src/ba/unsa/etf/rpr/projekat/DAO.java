@@ -28,6 +28,9 @@ public class DAO {
         return instance;
     }
 
+    /***
+     * Private constructor for DAO, forbids multiple DB connections, to not lock DB.
+     */
     private DAO() {
         try {
             properties = new Properties();
