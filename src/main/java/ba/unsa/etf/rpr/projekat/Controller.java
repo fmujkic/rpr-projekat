@@ -151,4 +151,7 @@ public class Controller {
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         primaryStage.show();
     }
+
+    public void handleBMICalculate(ActionEvent actionEvent) {
+    }
 }

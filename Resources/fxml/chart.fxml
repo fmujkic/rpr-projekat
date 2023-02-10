@@ -5,7 +5,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="borderPane" minHeight="400.0" minWidth="600.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.ba.unsa.etf.rpr.projekat.Controller">
+<BorderPane fx:id="borderPane" minHeight="400.0" minWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.ba.unsa.etf.rpr.projekat.Controller">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -18,11 +18,7 @@
           <Menu mnemonicParsing="false" text="Actions">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#handleAddWeight" text="Add weight" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleBMICalculate" text="Calculate BMI" />
             </items>
           </Menu>
         </menus>
