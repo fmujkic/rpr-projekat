@@ -60,15 +60,11 @@ public class Controller {
     @FXML
     public void handleChart(ActionEvent event){
         user = dao.getUser(userID);
-
         CategoryAxis categoryAxisX = new CategoryAxis();
         categoryAxisX.setLabel("Time");
-
         NumberAxis categoryAxisY = new NumberAxis();
         categoryAxisY.setLabel("Weight");
-
         var areaChart = new AreaChart(categoryAxisX,categoryAxisY);
-
         var data = new XYChart.Series();
         data.setName("Progress");
 
