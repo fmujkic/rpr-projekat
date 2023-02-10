@@ -53,6 +53,10 @@ public class Controller {
     ListView<String> weightsList = new ListView<>();
 
 
+    /***
+     *
+     * @param event
+     */
     @FXML
     public void handleChart(ActionEvent event){
         user = dao.getUser(userID);
