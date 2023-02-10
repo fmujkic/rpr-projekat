@@ -35,6 +35,9 @@ public class Controller {
     public Button buttonSubmitWeight;
     public TextField userName;
     public TextField password;
+    public TextField textWeightBMI;
+    public TextField textHeightBMI;
+    public TextField BMI;
     private DAO dao;
     private User user;
     private int userID = 1;
@@ -152,6 +155,11 @@ public class Controller {
         primaryStage.show();
     }
 
-    public void handleBMICalculate(ActionEvent actionEvent) {
+    public void handleBMICalculate(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/BMI.fxml"));
+        primaryStage.setTitle("Calculate BMI");
+        primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        primaryStage.show();
+
     }
 }
