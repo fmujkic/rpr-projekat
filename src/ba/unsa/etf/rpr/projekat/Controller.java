@@ -133,6 +133,11 @@ public class Controller {
     }
 
 
+    /***
+     * Login and registration
+     * @param actionEvent fxml event
+     * @throws IOException if fxml does not work properly.
+     */
     public void login(ActionEvent actionEvent) throws IOException {
         userID = dao.loginRegisterUser(userName.getText(), password.getText());
         user = dao.getUser(userID);
