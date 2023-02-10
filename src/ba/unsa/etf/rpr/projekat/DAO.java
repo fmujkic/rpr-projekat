@@ -184,6 +184,12 @@ public class DAO {
 
     }
 
+    /***
+     * Metod for login user or registration if user does not exist.
+     * @param userName name of the user.
+     * @param password users password.
+     * @return Id of logged user.
+     */
     public int loginRegisterUser(String userName, String password)  {
         int userID = userExists(userName, password);
         if (userID == 0){
@@ -191,6 +197,7 @@ public class DAO {
         }
         return userID;
     }
+
 
     private int createUser(String userName, String password) {
         ResultSet rs;
