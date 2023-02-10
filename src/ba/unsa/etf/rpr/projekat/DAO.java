@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.Scanner;
 
 public class DAO {
@@ -12,6 +13,8 @@ public class DAO {
     private static DAO instance;
     private Connection conn;
     public static int UserID = 0;
+    public String config = "Resources/config.properties";
+    Properties properties;
 
     private PreparedStatement userList, userByID, weightsForUserByID, addWeightForUser,setNewUserID,userExists, createUser;
 
@@ -22,7 +25,16 @@ public class DAO {
 
     private DAO() {
         try {
-            conn = DriverManager.getConnection("jdbc:sqlite:baza.db");
+            properties = new Properties();
+            FileInputStream fileInputStream = new FileInputStream(config);
+            properties.load(fileInputStream);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+            conn = DriverManager.getConnection(properties.getProperty("dbURL"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
