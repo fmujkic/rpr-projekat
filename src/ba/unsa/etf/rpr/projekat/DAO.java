@@ -143,6 +143,9 @@ public class DAO {
         return new Weight(rs.getString(1), rs.getDouble(3));
     }
 
+    /***
+     * Method for recreating database from dump.
+     */
     private void DBRefresh() {
         Scanner enter;
         try {
