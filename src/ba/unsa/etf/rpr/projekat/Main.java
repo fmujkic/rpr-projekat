@@ -12,8 +12,8 @@ public class Main extends Application {
 
 
     /***
-     *
-     * @param primaryStage
+     * Initial window loader.
+     * @param primaryStage first stage to be shown.
      * @throws Exception
      */
     @Override
