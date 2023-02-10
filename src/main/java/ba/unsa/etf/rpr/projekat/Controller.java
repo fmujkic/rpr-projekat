@@ -162,4 +162,18 @@ public class Controller {
         primaryStage.show();
 
     }
+
+    public void buttonBMI(ActionEvent actionEvent) {
+        Double h,w,bmi;
+        try {
+            w = Double.parseDouble(textWeightBMI.getText());
+            h = Double.parseDouble(textHeightBMI.getText());
+            bmi = (w * 100) / (h * h);
+            BMI.setText(bmi.toString());
+        } catch (Exception ex){
+            JOptionPane.showMessageDialog(null,"Please enter valid values!", "Warning", JOptionPane.ERROR_MESSAGE);
+            textHeightBMI.getScene().getWindow().hide();
+        }
+
+    }
 }

@@ -22,7 +22,7 @@
         <Label text="Weight" />
         <Label text="Height" GridPane.rowIndex="1" />
         <TextField fx:id="textWeightBMI" GridPane.columnIndex="1" />
-        <Button fx:id="buttonSubmitWeight" mnemonicParsing="false" onAction="#handleSubmitWeight" text="Calculate BMI" GridPane.rowIndex="2" />
+        <Button fx:id="buttonBMI" mnemonicParsing="false" onAction="#buttonBMI" text="Calculate BMI" GridPane.rowIndex="2" />
       <TextField fx:id="textHeightBMI" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <TextField fx:id="BMI" GridPane.columnIndex="1" GridPane.rowIndex="2" />
     </children>
