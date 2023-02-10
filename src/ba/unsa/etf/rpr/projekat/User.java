@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * Creating DTO for user.
+ */
 public class User implements Serializable {
     private int ID;
     private String userName, password;
