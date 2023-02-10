@@ -12,6 +12,9 @@ public class User implements Serializable {
     private String userName, password;
     private List<Weight> weights;
 
+    /***
+     * User constructor without parameters.
+     */
     public User() {
         this.ID = 0;
         this.userName = "defaultUser";
