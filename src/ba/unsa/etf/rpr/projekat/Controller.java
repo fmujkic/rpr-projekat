@@ -55,7 +55,7 @@ public class Controller {
 
     /***
      * handles chart controls.
-     * @param event
+     * @param event fxml event
      */
     @FXML
     public void handleChart(ActionEvent event){
