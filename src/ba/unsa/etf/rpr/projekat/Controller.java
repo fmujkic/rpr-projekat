@@ -99,7 +99,7 @@ public class Controller {
     /***
      * Handles adding weight to user.
      * @param event  fxml event
-     * @throws IOException
+     * @throws IOException if fxml does not work properly.
      */
     @FXML
     public void handleAddWeight(ActionEvent event) throws IOException {
