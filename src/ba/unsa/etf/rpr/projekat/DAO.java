@@ -224,8 +224,8 @@ public class DAO {
 
     /***
      * Checks if user exist in database.
-     * @param userName
-     * @param password
+     * @param userName checking if user with this name exists.
+     * @param password checking if user with this name exists.
      * @return
      */
     private int userExists(String userName, String password)  {
