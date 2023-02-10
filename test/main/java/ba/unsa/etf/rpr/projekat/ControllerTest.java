@@ -1,4 +1,4 @@
-package ba.unsa.etf.rpr.projekat;
+package main.java.ba.unsa.etf.rpr.projekat;
 
 import javafx.event.ActionEvent;
 import org.junit.jupiter.api.Test;

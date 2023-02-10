@@ -1,4 +1,4 @@
-package ba.unsa.etf.rpr.projekat;
+package main.java.ba.unsa.etf.rpr.projekat;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

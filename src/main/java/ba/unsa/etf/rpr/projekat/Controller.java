@@ -1,4 +1,4 @@
-package ba.unsa.etf.rpr.projekat;
+package main.java.ba.unsa.etf.rpr.projekat;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
