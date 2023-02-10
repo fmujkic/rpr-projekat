@@ -16,10 +16,13 @@ public class DAO {
     private Connection conn;
     public static int UserID = 0;
     public String config = "Resources/config.properties";
-    Properties properties;
-
+    private Properties properties;
     private PreparedStatement userList, userByID, weightsForUserByID, addWeightForUser,setNewUserID,userExists, createUser;
 
+    /***
+     * Getting instance of a data access object.
+     * @return
+     */
     public static DAO getInstance() {
         if (instance == null) instance = new DAO();
         return instance;
