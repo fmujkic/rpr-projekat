@@ -91,12 +91,16 @@ public class Controller {
             orderedWeights.add(weight.toString());
         }
 
-
         list.addAll(orderedWeights);
         weightsList.getItems().addAll(list);
         borderPane.setCenter(weightsList);
     }
 
+    /***
+     * Handles adding weight to user.
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void handleAddWeight(ActionEvent event) throws IOException {
 
