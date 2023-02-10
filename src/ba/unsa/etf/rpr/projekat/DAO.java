@@ -201,7 +201,7 @@ public class DAO {
 
     /***
      * Method for creating new user.
-     * @param userName
+     * @param userName parameter for userName of new user.
      * @param password
      * @return
      */
