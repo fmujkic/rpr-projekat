@@ -21,7 +21,7 @@ public class DAO {
 
     /***
      * Getting instance of a data access object.
-     * @return
+     * @return Instance of DAO object.
      */
     public static DAO getInstance() {
         if (instance == null) instance = new DAO();
@@ -91,7 +91,7 @@ public class DAO {
      * Private method to extract user from result set.
      * @param rs ResultSet is given parameter.
      * @return returns Instance of an User object.
-     * @throws SQLException
+     * @throws SQLException if there is SQL issue.
      */
     private User getUserFromResultSet(ResultSet rs) throws SQLException {
         User u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), null);
@@ -99,6 +99,11 @@ public class DAO {
         return u;
     }
 
+    /***
+     * Gets list of weights for user.
+     * @param userID ID for finding the User.
+     * @return list of objects of type weights.
+     */
     public ArrayList<Weight> getWeightsForUser(int userID) {
         try {
             weightsForUserByID.setInt(1, userID);
