@@ -14,7 +14,7 @@ public class Main extends Application {
     /***
      * Initial window loader.
      * @param primaryStage first stage to be shown.
-     * @throws Exception
+     * @throws Exception throws if resource can not be found.
      */
     @Override
     public void start(Stage primaryStage) throws Exception{
